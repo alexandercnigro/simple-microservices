@@ -4,7 +4,7 @@ const axios = require('axios');
 
 const app = express();
 app.use(express.json());
-const port = 3001
+const port = 8080
 
 app.post('/price', (req, res) => {
   axios.post(`${process.env.TAX_SERVICE_URL}`, {
