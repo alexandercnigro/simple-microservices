@@ -1,5 +1,5 @@
 let getTax = (preTaxPrice) => {
-    const tax = preTaxPrice * .75;
+    const tax = roundUp(preTaxPrice * .25);
 
     return ({
         tax,
@@ -7,5 +7,9 @@ let getTax = (preTaxPrice) => {
         postTaxPrice: tax + preTaxPrice
     })
 }
+
+let roundUp = cost => Math.round(cost * 100) / 100
+
+
 
 module.exports = getTax;

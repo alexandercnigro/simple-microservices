@@ -11,7 +11,10 @@ app.post('/price', (req, res) => {
     price: prices[req.body.fruit],
   })
   .then(function (response) {
-    res.send("Price from Cost service with calculated tax from Tax service: " + (response.data + prices[req.body.fruit]))
+    console.log(`${process.env.TAX_SERVICE_URL}`)
+    res.send("Base Price from Cost service: $" + prices[req.body.fruit]
+    + "\nTax from Tax service: $" + response.data 
+    + "\nTotal Price: $" + (response.data + prices[req.body.fruit]))
   })
   .catch(function (error) {
     console.log(error);
